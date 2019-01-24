@@ -4,15 +4,27 @@ The *getting\_started\_pkg* is the package that must be used to get started with
 # Table of contents
 - [What is this ?](#what-is-this)
 - [Table of contents](#table-of-contents)
-- [Code within the package](#code-within-the-package)
+- [Package information](#package-information)
+  - [Creating the package](#creating-the-package)
   - [Simple Nodes](#simple-nodes)
     - [ArgsParser.cpp](#argsparsercpp)
-    - [ArgsParser.py](#argsparserpy)
+    - [ArgumentParser.py](#argumentparserpy)
 - [Running the nodes](#running-the-nodes)
 
-# Code within the package
+# Package information
+## Creating the package
+`cd` into the _src_ folder of your workspace
+```bash
+cd ~/ROS_workspaces/ros_ws/src/
+```
+Use `catkin_create_pkg` to create the package
+```bash
+catkin_create_pkg getting_started_pkg roscpp rospy std_msgs
+```
+Then `catkin_make` the workspace
 ## Simple Nodes
-### ArgsParser.cpp
+Code inside the package
+### [ArgsParser.cpp](./src/ArgsParser.cpp)
 This is to publish the arguments received by the nodes during execution.
 
 The development is done as follows:
@@ -34,13 +46,15 @@ After that, update the CMakeLists.txt file with the following:
     target_link_libraries(Args_CPP_Parser ${catkin_LIBRARIES})
     ```
 
+The, run `catkin_make` in your workspace directory
+
 **Running it**
 
 ```bash
 rosrun getting_started_pkg Args_CPP_Parser -a1 Arg1_value --argument2
 ```
 
-### ArgsParser.py
+### [ArgumentParser.py](./scripts/ArgumentParser.py)
 This is to publish the arguments received by the nodes during execution.
 
 The development is done as follows:
