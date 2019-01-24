@@ -21,6 +21,7 @@ Use `catkin_create_pkg` to create the package
 ```bash
 catkin_create_pkg getting_started_pkg roscpp rospy std_msgs
 ```
+Then `catkin_make` the workspace
 ## Simple Nodes
 Code inside the package
 ### [ArgsParser.cpp](./src/ArgsParser.cpp)

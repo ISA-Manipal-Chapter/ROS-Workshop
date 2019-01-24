@@ -23,6 +23,7 @@ Use `catkin_create_pkg` to create this package
 ```bash
 catkin_create_pkg simple_subscriber_publisher roscpp rospy std_msgs
 ```
+Then `catkin_make` the workspace
 ## Simple Nodes
 Code inside the package
 ### [Simple_CPP_Publisher.cpp](./src/Simple_CPP_Publisher.cpp)
