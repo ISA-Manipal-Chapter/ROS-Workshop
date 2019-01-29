@@ -1,0 +1,20 @@
+<launch>
+    <env name="ROSCONSOLE_CONFIG_FILE" value="$(find launch_files_getting_started)/config/rosconsole_cpp.conf" />
+    <env name="ROS_PYTHON_LOG_CONFIG_FILE" value="$(find launch_files_getting_started)/config/rosconsole_python.conf" />
+    <!-- Nodes to be launched -->
+    <node name="PY_Args_Parser" pkg="getting_started_pkg" type="ArgumentParser.py" 
+        args="1 2 3" launch-prefix="xterm -e" />
+    <node name="PY_Publisher" pkg="simple_subscriber_publisher" 
+        type="Simple_PY_Publisher.py" launch-prefix="xterm -e" />
+    <node name="CPP_Publisher" pkg="simple_subscriber_publisher" 
+        type="SimpleCPP_Publisher" launch-prefix="xterm -e" />
+    <node name="PY_Subscriber" pkg="simple_subscriber_publisher" 
+        type="Simple_PY_Subscriber.py" launch-prefix="xterm -e" />
+    <node name="CPP_Subscriber" pkg="simple_subscriber_publisher" 
+        type="SimpleCPP_Subscriber" launch-prefix="xterm -e" />
+    <node name="CPP_Debugger" pkg="getting_started_pkg" 
+        type="AllLevelDebugger" launch-prefix="xterm -e" />
+    <node name="PY_Debugger" pkg="getting_started_pkg" 
+        type="DebuggerAll.py" launch-prefix="xterm -e" />
+    <node name="RQT_Graph" pkg="rqt_graph" type="rqt_graph" required="true" />
+</launch>

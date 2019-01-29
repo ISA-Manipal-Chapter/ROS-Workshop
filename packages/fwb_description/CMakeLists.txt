@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(getting_started_pkg)
+project(fwb_description)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,9 +8,10 @@ project(getting_started_pkg)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  std_msgs
+  robot_state_publisher
+  tf
+  urdf
+  xacro
 )
 
 ## System dependencies are found with CMake's conventions
@@ -70,7 +71,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   std_msgs  # Or other packages containing msgs
 # )
 
 ################################################
@@ -104,8 +105,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES getting_started_pkg
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+#  LIBRARIES fwb_description
+#  CATKIN_DEPENDS robot_state_publisher tf urdf xacro
 #  DEPENDS system_lib
 )
 
@@ -122,7 +123,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/getting_started_pkg.cpp
+#   src/${PROJECT_NAME}/fwb_description.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -133,9 +134,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/getting_started_pkg_node.cpp)
-add_executable(Args_CPP_Parser src/ArgsParser.cpp)
-add_executable(AllLevelDebugger src/DebuggerAll.cpp)
+# add_executable(${PROJECT_NAME}_node src/fwb_description_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -151,8 +150,6 @@ add_executable(AllLevelDebugger src/DebuggerAll.cpp)
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-target_link_libraries(Args_CPP_Parser ${catkin_LIBRARIES})
-target_link_libraries(AllLevelDebugger ${catkin_LIBRARIES})
 
 #############
 ## Install ##
@@ -194,7 +191,7 @@ target_link_libraries(AllLevelDebugger ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_getting_started_pkg.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_fwb_description.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

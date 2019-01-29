@@ -100,5 +100,5 @@ Follow the following steps:
     ~/ROS_workspaces/ros_ws/devel/lib/python2.7/dist-packages/simple_msg_srv_def/srv/
     ```
 
-All the source files are stored here
+All the source files are stored in this directory
 
