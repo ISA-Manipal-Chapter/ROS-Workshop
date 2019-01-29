@@ -135,6 +135,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/getting_started_pkg_node.cpp)
 add_executable(Args_CPP_Parser src/ArgsParser.cpp)
+add_executable(AllLevelDebugger src/DebuggerAll.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -151,6 +152,7 @@ add_executable(Args_CPP_Parser src/ArgsParser.cpp)
 #   ${catkin_LIBRARIES}
 # )
 target_link_libraries(Args_CPP_Parser ${catkin_LIBRARIES})
+target_link_libraries(AllLevelDebugger ${catkin_LIBRARIES})
 
 #############
 ## Install ##

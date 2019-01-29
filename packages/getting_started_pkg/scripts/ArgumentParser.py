@@ -11,3 +11,4 @@ if __name__ == "__main__":
     rospy.loginfo('{num} argument(s)'.format(num=len(sys.argv)))
     for num, i in enumerate(sys.argv, start=1):
         rospy.loginfo('Argument {0}: {1}'.format(num, i))
+    input()
