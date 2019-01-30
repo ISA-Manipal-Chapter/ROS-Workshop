@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot name="fwb">
+    <!-- Link 1 -->
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.25"/>
+            <geometry>
+                <box size="1.0 2.0 0.5"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+    <link name="wheel1">
+        <visual>
+            <origin xyz="0.0 0.0 -0.0625"/>
+            <geometry>
+                <cylinder radius="0.25" length="0.125"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+    </link>
+    <joint name="wheel_fr" type="continuous">
+        <origin xyz="0.5 1.0 0.0" rpy="0.0 -1.57079632679 0.0"/>
+        <parent link="base_link"/>
+        <child link="wheel1"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+</robot>

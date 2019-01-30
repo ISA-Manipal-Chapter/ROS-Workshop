@@ -1,0 +1,13 @@
+<launch>
+    <!-- Robot description -->
+    <param name="robot_description" 
+        command="cat $(find first_robot)/urdf/robot01.urdf"/>
+    <param name="use_gui" value="true" />
+    <!-- RViZ Node -->
+    <node name="rviz" pkg="rviz" type="rviz" 
+        args="-d $(find first_robot)/rviz/robot.rviz" required="true" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher"
+        type="robot_state_publisher" />
+    <node name="joint_state_publisher" pkg="joint_state_publisher" 
+        type="joint_state_publisher"/>
+</launch>
